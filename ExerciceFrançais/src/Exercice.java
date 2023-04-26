@@ -1,12 +1,44 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Exercice {
     public static void main(String[] args) {
 
+        System.out.println("Deviner un Nombre\n");
+        Scanner lecteur = new Scanner(System.in);
+        int numeroSecret = new Random().nextInt(100);
+        int tentatives = 0;
+
+        while (tentatives < 5) {
+            System.out.print("Entrez un Nombre: ");
+            int numeroTape = lecteur.nextInt();
+
+            if (numeroTape == numeroSecret) 
+            {
+                System.out.println("");
+                break;
+            } 
+            tentatives++;
+        }
+        if (tentatives == 5) {
+            System.out.println("Vous avez perdu, les "+
+            "tentatives sont terminées !");
+        }
+        lecteur.close();
+
+        /*
+         * $$$$$$$$$$$$$$$$$
+         * 
+         * Jeu de Devinettes
+         * 
+         * $$$$$$$$$$$$$$$$$
+         */
+
         System.out.println("Jeu de Devinettes\n\n"+
+        "Thèmes:\n1-Des Fruits\n2-Animaux\n"+
+        "3-Langages de Programmation\n\n"+
         "Choisir la Difficulté:\n(1)=Facile\n(2)=Moyen\n"+
-        "(3)=Difficile\n\nThèmes:\n1-Des Fruits\n2-Animaux\n"+
-        "3-Langages de Programmation\n\n");
+        "(3)=Difficile\n\n");
 
         Scanner lisant = new Scanner(System.in);
         int interdit = lisant.nextInt();
@@ -27,6 +59,7 @@ public class Exercice {
         lisant.close();
 
         Scanner lisant2 = new Scanner(System.in);
+        System.out.print("deviner une lettre: ");
         String interdit2 = lisant2.nextLine();
 
         lisant2.close();
